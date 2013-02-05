@@ -1,0 +1,8 @@
+build/*
+capture/*
+Assembly-*
+Library/*
+Temp/*
+ 
+*.sln
+*.userprefs
