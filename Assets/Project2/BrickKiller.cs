@@ -21,6 +21,7 @@ public class BrickKiller : MonoBehaviour {
 	void Start () {
 		
 		highScoreNum = PlayerPrefs.GetInt("BrickBreakHighScore",0);
+		scoreNum = PlayerPrefs.GetInt("BrickBreakCurrentScore",0);
 		scoreText.text= "Score: " + (scoreNum);
 		highScoreText.text = "High Score: " + highScoreNum;
 	}
@@ -34,7 +35,8 @@ public class BrickKiller : MonoBehaviour {
 	
 	void OnCollisionExit(Collision collision){
 		if(collision.rigidbody != null){//only bricks and the ball are rigid bodies
-			scoreText.text= "Score: " + (++scoreNum);
+			PlayerPrefs.SetInt("BrickBreakCurrentScore",++scoreNum);
+			scoreText.text= "Score: " + (scoreNum);
 			if(scoreNum > highScoreNum){
 				highScoreNum = scoreNum;
 				highScoreText.text = "High Score: " + highScoreNum;
@@ -43,5 +45,9 @@ public class BrickKiller : MonoBehaviour {
 			brickCount--;
 		}
 			
+	}
+	
+	void OnApplicationQuit(){
+			PlayerPrefs.SetInt("BrickBreakCurrentScore",0);
 	}
 }

@@ -54,7 +54,9 @@ public class BallMovement : MonoBehaviour {
 				//loses a life and if lives fall below zero, ends the game
 				livesText.text = "Lives: " + (--livesNum);
 				if(livesNum < 0){
-					Application.LoadLevel("BrickBreak");	
+					PlayerPrefs.SetInt("BrickBreakCurrentScore",0);
+					Application.LoadLevel("BrickBreak");
+					
 				}
 				//resets the ball when it goes off the screen.
 				else{
@@ -62,6 +64,14 @@ public class BallMovement : MonoBehaviour {
 					rigidbody.velocity = Vector3.zero;
 					launched = false;
 				}
+				
+			}
+			
+			//if the game bugs out and the ball flys off the screen
+			else if(screenPosition.y >1 || screenPosition.x <0 || screenPosition.x >1) {
+				rigidbody.position = startpoint;
+					rigidbody.velocity = Vector3.zero;
+					launched = false;
 			}
 			
 			
