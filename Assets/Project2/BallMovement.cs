@@ -39,7 +39,7 @@ public class BallMovement : MonoBehaviour {
 			rigidbody.velocity = Vector3.right * Input.GetAxis("Horizontal") * PaddleSpeed.speed;
 			if(Input.GetButtonUp("Jump")){
 				launched = true;
-				rigidbody.velocity = Vector3.one * ballSpeed;
+				rigidbody.velocity = Vector3.up * ballSpeed;
 				
 			}
 		}
@@ -78,6 +78,6 @@ public class BallMovement : MonoBehaviour {
 	}
 	
 	void OnCollisionExit(Collision collision){
-		
+		rigidbody.velocity = rigidbody.velocity * 1.1f;
 	}
 }

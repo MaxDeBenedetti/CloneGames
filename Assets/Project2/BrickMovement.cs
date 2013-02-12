@@ -12,9 +12,11 @@ public class BrickMovement : MonoBehaviour {
 	void Update () {
 		if(BallMovement.launched)
 			rigidbody.velocity = Vector3.right * Input.GetAxis("Horizontal") * PaddleSpeed.speed;
+		else
+			rigidbody.velocity = Vector3.zero;
 	}
 	
-	void OnCollisionEnter(Collision collision){
+	void OnCollisionExit(Collision collision){
 		GameObject.Destroy(gameObject);	
 		
 	}

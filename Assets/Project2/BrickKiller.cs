@@ -32,7 +32,7 @@ public class BrickKiller : MonoBehaviour {
 		}
 	}
 	
-	void OnCollisionEnter(Collision collision){
+	void OnCollisionExit(Collision collision){
 		if(collision.rigidbody != null){//only bricks and the ball are rigid bodies
 			scoreText.text= "Score: " + (++scoreNum);
 			if(scoreNum > highScoreNum){
