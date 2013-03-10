@@ -1,0 +1,25 @@
+using UnityEngine;
+using UnityEditor;
+using System.Collections;
+
+public class SpriteSheet : MonoBehaviour {
+	
+	public Texture2D[] sourceTextures;
+	public Rect[] uvs;
+	public Material material;
+	public Texture2D theSheet;
+	
+	// Use this for initialization
+	void Start () {
+	
+	}
+	
+	// Update is called once per frame
+	void Update () {
+	
+	}
+	
+	public void makeSpriteSheet(){
+		
+	}
+}

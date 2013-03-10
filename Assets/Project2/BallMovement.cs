@@ -82,10 +82,7 @@ public class BallMovement : MonoBehaviour {
 		
 	}
 	
-	
-	void OnCollisionEnter(Collision collision){
-		
-	}
+
 	
 	void OnCollisionExit(Collision collision){
 		rigidbody.velocity = rigidbody.velocity * 1.1f;
