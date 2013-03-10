@@ -3,6 +3,8 @@ capture/*
 Assembly-*
 Library/*
 Temp/*
- 
+
+Commands.txt
+
 *.sln
 *.userprefs
