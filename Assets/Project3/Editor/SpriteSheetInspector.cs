@@ -21,7 +21,6 @@ public class SpriteSheetInspector : Editor {
 				AssetDatabase.ImportAsset(importer.assetPath);	
 			}
 			
-			
 			Texture2D newTexture = new Texture2D(1024,1024);
 			s.uvs =newTexture.PackTextures(s.sourceTextures,0);
 			
