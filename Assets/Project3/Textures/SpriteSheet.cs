@@ -8,6 +8,7 @@ public class SpriteSheet : MonoBehaviour {
 	public Rect[] uvs;
 	public Material material;
 	public Texture2D theSheet;
+	public string[] names;
 	
 	// Use this for initialization
 	void Start () {
@@ -19,7 +20,13 @@ public class SpriteSheet : MonoBehaviour {
 	
 	}
 	
-	public void makeSpriteSheet(){
+	public int getSpriteInfo(string name){
 		
+		for(int i = 0; i < names.Length; i++){
+			if(names[i]==(name)){
+				return i;	
+			}
+		}
+		return -1;
 	}
 }

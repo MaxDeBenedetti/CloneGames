@@ -15,11 +15,20 @@ public class SpriteSheetInspector : Editor {
 			
 			SpriteSheet s = this.target as SpriteSheet;
 			
+			s.names = new string[s.sourceTextures.Length];
+			
+			for(int i = 0; i <s.names.Length; i++){
+				s.names[i] = s.sourceTextures[i].name;	
+			}
+			
 			foreach(Texture2D tex in s.sourceTextures){
 				TextureImporter importer = AssetImporter.GetAtPath(AssetDatabase.GetAssetPath(tex.GetInstanceID())) as TextureImporter;	
 				importer.isReadable = true;
 				AssetDatabase.ImportAsset(importer.assetPath);	
+				
 			}
+			
+			
 			
 			Texture2D newTexture = new Texture2D(1024,1024);
 			s.uvs =newTexture.PackTextures(s.sourceTextures,0);
