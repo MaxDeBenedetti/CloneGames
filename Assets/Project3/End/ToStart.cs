@@ -12,7 +12,13 @@ public class ToStart : MonoBehaviour {
 	void Update () {
 	
 		if(Input.anyKey){
-			Application.LoadLevel("Start");
+			Invoke("restart",1);
 		}
+	}
+	
+	void restart(){
+		
+		print ("hi");
+		Application.LoadLevel("Start");
 	}
 }
