@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: d96f9dbf112b0a24791cbe7c7c39ff34
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - spriteSheet: {fileID: 11400000, guid: 8586f49facf497949a9d57a3654c59d2, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
