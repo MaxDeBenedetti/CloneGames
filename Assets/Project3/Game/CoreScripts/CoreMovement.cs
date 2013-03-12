@@ -10,13 +10,13 @@ public class CoreMovement : MonoBehaviour {
 	public float restTime;
 	
 	private bool isExposed;
-	private float lastMoved;
+
 	
 	// Use this for initialization
 	void Start () {
 		exposed = GameObject.Find("CoreExposed");
 		resting = GameObject.Find("CoreResting");
-		isExposed = true;
+		StartCoroutine("movement");
 	}
 	
 	// Update is called once per frame
@@ -29,8 +29,20 @@ public class CoreMovement : MonoBehaviour {
 		}
 	}
 	
-	public void changePosition(){
-		lastMoved = Time.time;
-		isExposed = !isExposed;
+	IEnumerator movement(){
+		while(true){
+			isExposed = false;
+			yield return new WaitForSeconds(restTime);
+			isExposed = true;
+			yield return new WaitForSeconds(exposeTime);
+		}
+	}
+	
+	void OnTriggerEnter(Collider other){
+		if(other.tag == "PlayerBullet"){
+			
+			StopCoroutine("movement");
+			StartCoroutine("movement");
+		}
 	}
 }
