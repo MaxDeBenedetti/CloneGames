@@ -21,8 +21,11 @@ public class SpriteSheet : MonoBehaviour {
 	}
 	
 	public int getSpriteInfo(string name){
+		//print (name);
 		
 		for(int i = 0; i < names.Length; i++){
+			
+			//print (names[i]);
 			if(names[i]==(name)){
 				return i;	
 			}
