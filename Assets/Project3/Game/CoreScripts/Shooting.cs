@@ -2,9 +2,9 @@ using UnityEngine;
 using System.Collections;
 
 public class Shooting : MonoBehaviour {
-	[HideInInspector]
-	public float delay = 2;
-	public OPGun gun;
+	
+	public float delay = 1;
+	private OPGun gun;
 	
 	// Use this for initialization
 	void Start () {
@@ -20,7 +20,7 @@ public class Shooting : MonoBehaviour {
 	
 	IEnumerator shoot(float wait){
 		while(true){
-			wait = CoreHealth._health;
+			wait = CoreHealth._health * delay;
 			gun.FireRand();
 			yield return new WaitForSeconds(wait);
 		}
